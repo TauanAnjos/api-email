@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Te amo pequena</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3e8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .card {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #e0c3ff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #7b3fbf;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #4b0082;
+        }
+        .hearts {
+            color: #d8b0ff;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #7b3fbf;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="hearts">❤️💜💖💜❤️</div>
+    <h1>Oi, <span th:text="${nome}">Laiza Hellen</span>!</h1>
+    <p>Quero te lembrar o quanto você é especial pra mim. 💜</p>
+    <div class="hearts">💜❤️💜💖💜</div>
+    <p class="footer">Com todo meu amor, sempre.</p>
+</div>
+</body>
+</html>
