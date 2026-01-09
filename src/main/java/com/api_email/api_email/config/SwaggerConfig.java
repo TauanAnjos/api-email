@@ -12,7 +12,7 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI newApiEmail(){
         return new OpenAPI().info(new Info()
-                        .title("New sigaa")
+                        .title("API-EMAIL")
                         .description("API desenvolvida para estudo")
                         .version("v0.0.1")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")))
