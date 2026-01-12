@@ -46,6 +46,7 @@ public class EmailService {
         BrevoEmailRequest req = new BrevoEmailRequest(sender, List.of(to), request.subject(), html);
 
         webClient.post().uri("https://api.brevo.com/v3/smtp/email")
+                .header("Content-Type", "application/json")
                 .header("api-key", brevoApiKey)
                 .bodyValue(req)
                 .retrieve().
