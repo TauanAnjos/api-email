@@ -20,7 +20,6 @@ import java.util.List;
 
 @Service
 public class EmailService {
-
     private final WebClient webClient;
     private final TemplateEngine templateEngine;
     @Value("${spring.brevo.api_key}")
@@ -33,32 +32,24 @@ public class EmailService {
         this.webClient = webClient;
     }
     public void sendEmail(EmailRequest request){
-        try{
-
-            String html;
-            if(request.templateHtmlInline() != null && !request.templateHtmlInline().isBlank()){
-                html = request.templateHtmlInline();
-            }else{
-                Context context = new Context();
-                context.setVariables(request.variables());
-                html = templateEngine.process(request.template(), context);
-            }
-            BrevoSender sender = new BrevoSender(emailFrom, "Sistema");
-            BrevoTo to = new BrevoTo(request.to(), null);
-
-            BrevoEmailRequest req = new BrevoEmailRequest(sender, java.util.List.of(to), request.subject(), html);
-
-
-
-            webClient.post().uri("https://api.brevo.com/v3/smtp/email")
-                    .header("api-key", brevoApiKey)
-                    .bodyValue(req)
-                    .retrieve().
-                    toBodilessEntity()
-                    .block();
+        String html;
+        if(request.templateHtmlInline() != null && !request.templateHtmlInline().isBlank()){
+            html = request.templateHtmlInline();
+        }else{
+            Context context = new Context();
+            context.setVariables(request.variables());
+            html = templateEngine.process(request.template(), context);
         }
-        catch (RuntimeException e){
-            throw new EmailServiceException("Falha ao enviar e-mail");
-        }
+        BrevoSender sender = new BrevoSender(emailFrom, "Sistema");
+        BrevoTo to = new BrevoTo(request.to(), null);
+
+        BrevoEmailRequest req = new BrevoEmailRequest(sender, List.of(to), request.subject(), html);
+
+        webClient.post().uri("https://api.brevo.com/v3/smtp/email")
+                .header("api-key", brevoApiKey)
+                .bodyValue(req)
+                .retrieve().
+                toBodilessEntity()
+                .block();
     }
 }
