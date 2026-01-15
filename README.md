@@ -12,7 +12,7 @@ Essa é uma **API de envio de e-mails** desenvolvida em **Java** com **Spring Bo
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Linguagem:** Java 17+
+* **Linguagem:** Java 21+
 * **Framework:** Spring Boot (REST, Validation, Dependency Injection)
 * **Template Engine:** Thymeleaf
 * **Cliente HTTP reativo:** WebClient (para chamada à API Brevo)
