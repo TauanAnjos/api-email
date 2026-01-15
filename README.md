@@ -16,7 +16,6 @@ Essa é uma **API de envio de e-mails** desenvolvida em **Java** com **Spring Bo
 * **Framework:** Spring Boot (REST, Validation, Dependency Injection)
 * **Template Engine:** Thymeleaf
 * **Cliente HTTP reativo:** WebClient (para chamada à API Brevo)
-* **Envio de e-mails SMTP:** JavaMailSender
 * **Deploy:** Render
 * **Validação de entrada:** Jakarta Validation (`@Email`, `@NotBlank`)
 * **Documentação:** Swagger (anotações nos DTOs)
@@ -63,13 +62,13 @@ Essa é uma **API de envio de e-mails** desenvolvida em **Java** com **Spring Bo
 1. Acesse o link da API deployada no Render:
 
 ```
-https://seu-api-email.onrender.com
+https://api-email-xh61.onrender.com
 ```
 
 2. Para enviar um e-mail, faça um `POST` para:
 
 ```
-https://seu-api-email.onrender.com/email/send
+https://api-email-xh61.onrender.com/email/send
 ```
 
 com o JSON conforme o exemplo acima.
@@ -77,7 +76,7 @@ com o JSON conforme o exemplo acima.
 3. Para verificar se a API está funcionando, faça um `GET` em:
 
 ```
-https://seu-api-email.onrender.com/email/health
+https://api-email-xh61.onrender.com/email/health
 ```
 
 Resposta esperada:
